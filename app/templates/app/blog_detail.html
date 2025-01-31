@@ -1,0 +1,171 @@
+{% extends 'app/base.html'%}
+{% load static %}
+
+{% block content %}
+<style>
+    /* Button Styles */
+    .btn-edit, .btn-delete, .btn-back {
+        display: inline-block;
+        padding: 12px 24px;
+        margin: 10px;
+        text-decoration: none;
+        font-weight: bold;
+        border-radius: 5px;
+        text-align: center;
+        transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    /* Edit Button Styling */
+    .btn-edit {
+        background-color: #F7CFD8; /* Light pink */
+        color: black;
+        border: 1px solid #F7CFD8;
+    }
+
+    .btn-edit:hover {
+        background-color: #e6a1b3;
+        color: black;
+    }
+
+    /* Delete Button Styling */
+    .btn-delete {
+        background-color: #F44336; /* Red */
+        color: white;
+        border: 1px solid #F44336;
+    }
+
+    .btn-delete:hover {
+        background-color: #e53935;
+        color: white;
+    }
+
+    /* Back Button Styling */
+    .btn-back {
+        background-color: #2196F3; /* Blue */
+        color: white;
+        border: 1px solid #2196F3;
+    }
+
+    .btn-back:hover {
+        background-color: #1976D2;
+        color: white;
+    }
+
+    /* Form Container Styling */
+    .form-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin-top: 50px;
+        width: 60%;
+        margin: 50px auto;
+        padding: 30px;
+        background-color: #000000; /* Black background */
+        color: white; /* White text */
+        border: 2px solid #F7CFD8; /* Light pink border */
+        border-radius: 8px;
+    }
+
+    /* Title Box Styling */
+    .title-box {
+        background-color: #222222; /* Dark grey */
+        border: 2px solid #F7CFD8; /* Light pink border */
+        padding: 15px;
+        margin-bottom: 20px;
+        border-radius: 8px;
+        width: 100%;
+        text-align: center;
+    }
+
+    .title-box h2 {
+        font-size: 1.6rem;
+        margin: 0;
+        color: #F7CFD8; /* Light pink color */
+    }
+
+    /* Image Box Styling */
+    .image-box {
+        width: 100%;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .image-box img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+        margin: 0 auto;
+        border: 2px solid #F7CFD8; /* Light pink border */
+        border-radius: 8px;
+    }
+
+    /* Body Box Styling */
+    .body-box {
+        background-color: #222222; /* Dark grey */
+        border: 2px solid #F7CFD8; /* Light pink border */
+        padding: 15px;
+        margin-bottom: 30px;
+        border-radius: 8px;
+        width: 100%;
+        text-align: center;
+    }
+
+    .body-box p {
+        font-size: 1.2rem;
+        line-height: 1.6;
+    }
+
+    /* Edit and Delete Buttons Container */
+    .button-container {
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    /* Back Button Styling */
+    .btn-back-container {
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    /* Footer Styling - Adding space */
+    footer {
+        padding: 20px 0;
+        margin-top: 30px;
+    }
+</style>
+
+<!-- Form Container for the Post Entry (Title, Image, and Body) -->
+<div class="form-container">
+    <!-- Title Box -->
+    <div class="title-box">
+        <label style="font-weight: bold; color: #F7CFD8;">Title:</label>
+        <h2>{{ post.title }}</h2>
+    </div>
+
+    <!-- Image Box -->
+    {% if post.image %}
+    <div class="image-box">
+        <img src="{{ post.image.url }}" alt="Blog Image">
+    </div>
+    {% endif %}
+
+    <!-- Body Box -->
+    <div class="body-box">
+        <label style="font-weight: bold; color: #F7CFD8;">Body:</label>
+        <p>{{ post.body }}</p>
+    </div>
+
+    <!-- Edit and Delete Buttons -->
+    <div class="button-container">
+        <a href="{% url 'blog_update' post.pk %}" class="btn-edit">+ Edit Blog</a>
+        <a href="{% url 'blog_delete' post.pk %}" class="btn-delete">- Delete Blog</a>
+    </div>
+
+    <!-- Back to Blog List Button -->
+    <div class="btn-back-container">
+        <a href="{% url 'blog' %}" class="btn-back">Back to Blog List</a>
+    </div>
+</div>
+
+{% endblock content %}

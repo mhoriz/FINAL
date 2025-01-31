@@ -1,0 +1,97 @@
+{% extends 'app/base.html' %}
+{% load static %}
+
+{% block content %}
+    <style>
+        /* Global Styling */
+        body {
+            background-color: black;
+            color: white;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        h2 {
+            color: #F7CFD8; /* Pink color */
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        form {
+            background-color: #222; /* Dark gray background */
+            padding: 30px;
+            border-radius: 10px;
+            width: 300px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .container {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-size: 14px;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            margin-bottom: 15px;
+            border: 2px solid #F7CFD8;
+            border-radius: 5px;
+            background-color: #333;
+            color: white;
+            font-size: 14px;
+        }
+
+        input:focus {
+            border-color: #F7CFD8;
+            outline: none;
+        }
+
+        button {
+            background-color: #F7CFD8;
+            color: black;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #F1B7D4;
+        }
+    </style>
+
+    <h2>Sign Up</h2>
+    <form method="post">
+        {% csrf_token %}
+        <div class="container">
+            <label for="username">Username</label>
+            <input type="text" placeholder="Enter your name" name="username" required>
+        </div>
+
+        <div class="container">
+            <label for="password">Password</label>
+            <input type="password" placeholder="Enter your password" name="password" required>
+        </div>
+
+        <div class="container">
+            <label for="password2">Re-Enter Password</label>
+            <input type="password" placeholder="Re-Enter your password" name="password2" required>
+        </div>
+
+        <button type="submit">Sign Up</button>
+    </form>
+{% endblock content %}

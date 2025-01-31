@@ -1,0 +1,70 @@
+{% extends 'app/base.html' %}
+{% load static %}
+
+{% block content %}
+<style>
+    /* Content Wrapper Styling */
+    .content-wrapper {
+        margin: 20px auto;
+        max-width: 800px;
+        padding: 20px;
+        background-color: #000000; /* Black background */
+        color: #fff; /* White text */
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Individual Post Styling */
+    .post-entry {
+        margin-bottom: 50px;
+        padding: 15px;
+        background-color: #222222; /* Dark grey for post background */
+        border: 1px solid #F7CFD8; /* Light pink border */
+        border-radius: 5px;
+    }
+
+    .post-entry h2 a {
+        color: #F7CFD8; /* Light pink text */
+        text-decoration: none;
+    }
+
+    .post-entry h2 a:hover {
+        color: #e0336d; /* Darker pink for hover */
+    }
+
+    /* Navigation (New Blog Post) Button */
+    .nav-right {
+        text-align: right;
+        margin-bottom: 20px;
+    }
+
+    .nav-right a {
+        display: inline-block;
+        padding: 10px 15px;
+        background-color: #F7CFD8; /* Light pink background */
+        color: #000; /* Black text */
+        text-decoration: none;
+        border-radius: 5px;
+    }
+
+    .nav-right a:hover {
+        background-color: #e6a1b3; /* Darker pink on hover */
+    }
+</style>
+
+<div class="content-wrapper">
+    <!-- New Blog Post Button -->
+    <div class="nav-right">
+        <a href="{% url 'blog_create' %}">+ New Blog Post</a>
+    </div>
+
+    <!-- Loop through each blog post -->
+    {% for post in posts %}
+        <div class="post-entry">
+            <h2><a href="{% url 'blog_detail' post.pk %}">{{ post.title }}</a></h2>
+            <p>{{ post.body }}</p>
+        </div>
+    {% endfor %}
+</div>
+
+{% endblock content %}

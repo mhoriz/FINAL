@@ -1,0 +1,125 @@
+{% extends 'app/base.html' %}
+{% load static %}
+
+{% block content %}
+    <style>
+        /* Form Container */
+        .form-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 80vh;
+        }
+
+        .form {
+            width: 40%;
+            padding: 20px;
+            border: 2px solid #F7CFD8; /* Light pink border */
+            background-color: #000000; /* Black background */
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(255, 64, 129, 0.3);
+            color: #fff; /* White text */
+        }
+
+        .form .form-fields {
+            margin-bottom: 15px;
+        }
+
+        /* Set text size */
+        .form, .form .form-fields, .form .submit-button input, .form .back-button a {
+            font-size: 16px;
+        }
+
+        .form .submit-button {
+            text-align: center;
+        }
+
+        /* Submit Button */
+        .form .submit-button input {
+            padding: 12px 25px;
+            background-color: #F7CFD8; /* Light pink */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 50%;
+            transition: background-color 0.3s ease;
+            font-weight: bold;
+        }
+
+        .form .submit-button input:hover {
+            background-color: #e0336d; /* Darker pink */
+        }
+
+        /* Back Button */
+        .form .back-button {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .form .back-button a {
+            display: inline-block;
+            padding: 12px 25px;
+            background-color: #F7CFD8; /* Light pink */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            width: 50%;
+            transition: background-color 0.3s ease;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .form .back-button a:hover {
+            background-color: #e0336d; /* Darker pink */
+        }
+
+        /* Title Styling */
+        .title {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 20px;
+            margin-top: 50px;
+            animation: fadeIn 1s ease-out;
+            color: #F7CFD8; /* Light pink title */
+        }
+
+        /* Animation for fade-in effect */
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+
+    <!-- Title with Centering -->
+    <h1 class="title">Edit Post</h1>
+
+    <!-- Form Container -->
+    <div class="form-container">
+        <form action="{% url 'blog_update' object.pk %}" method="post" class="form">
+            {% csrf_token %}
+            <!-- Form Fields with Spacing -->
+            <div class="form-fields">
+                {{ form.as_p }}
+            </div>
+
+            <!-- Submit Button with Styling -->
+            <div class="submit-button">
+                <input type="submit" value="Update">
+            </div>
+
+            <!-- Back to Blog Button -->
+            <div class="back-button">
+                <a href="{% url 'blog' %}">Back to Blog List</a>
+            </div>
+        </form>
+    </div>
+
+{% endblock content %}

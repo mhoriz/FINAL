@@ -1,0 +1,36 @@
+{% extends 'app/base.html'%}
+{% load static %}
+
+{% block content %}
+<div class="con_container" style="max-width: 800px; margin: 30px auto; padding: 20px; background-color: #000000; color: white; border-radius: 10px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+    <h1 style="text-align: center; color: #F7CFD8;">Contact Us</h1>
+    <div class="con_contact-info" style="text-align: center; margin-bottom: 20px;">
+        <a href="https://www.facebook.com/profile.php?id=100009457483104" style="text-decoration: none; margin: 10px;">
+            <button style="background-color: #F7CFD8; color: black; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; font-size: 16px; transition: background-color 0.3s;">
+                FACEBOOK
+            </button>
+        </a>
+        <a href="https://www.tiktok.com/@mhorizcalison?_t=8c0s6begNuC&_r=1" style="text-decoration: none; margin: 10px;">
+            <button style="background-color: #F7CFD8; color: black; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; font-size: 16px; transition: background-color 0.3s;">
+                TIKTOK
+            </button>
+        </a>
+        <a href="https://instagram.com/mhorizcalison?igshid=ZDdkNTZiNTM=" style="text-decoration: none; margin: 10px;">
+            <button style="background-color: #F7CFD8; color: black; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; font-size: 16px; transition: background-color 0.3s;">
+                INSTAGRAM
+            </button>
+        </a>
+        <p style="font-size: 16px;">Phone: <a href="tel:+123456789" style="color: #F7CFD8; text-decoration: none;">09152190109</a></p>
+    </div>
+
+    <h2 style="text-align: center; color: #F7CFD8;">Send a Message</h2>
+    <form id="con_contact-form" style="display: flex; flex-direction: column; gap: 15px;">
+        <input type="text" id="name" name="name" placeholder="Your Name" required style="padding: 10px; border: 1px solid #ccc; border-radius: 5px; font-size: 16px;">
+        <input type="email" id="email" name="email" placeholder="Your Email" required style="padding: 10px; border: 1px solid #ccc; border-radius: 5px; font-size: 16px;">
+        <textarea id="message" name="message" placeholder="Your Message" rows="4" required style="padding: 10px; border: 1px solid #ccc; border-radius: 5px; font-size: 16px;"></textarea>
+        <button type="submit" style="background-color: #F7CFD8; color: black; padding: 10px; border: none; border-radius: 5px; cursor: pointer; font-size: 16px;">
+            Send
+        </button>
+    </form>
+</div>
+{% endblock content %}

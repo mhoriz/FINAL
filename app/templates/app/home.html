@@ -1,0 +1,51 @@
+{% extends 'app/base.html' %}
+{% load static %}
+
+{% block content %}
+    <style>
+        /* Hero Section Styling */
+        .hero {
+            background-color: black;
+            color: white;
+            padding: 100px 20px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            color: #F7CFD8; /* Light pink */
+            background-color: black;
+            display: inline-block;
+            padding: 10px 20px;
+            border-radius: 5px;
+        }
+
+        /* Content Section Styling */
+        .content {
+            background-color: black;
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .content h2 {
+            color: #F7CFD8; /* Light pink */
+        }
+
+        .content p {
+            font-size: 1.2rem;
+            color: white;
+            line-height: 1.6;
+        }
+    </style>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Welcome</h1>
+        </div>
+    </section>
+
+
+
+{% endblock content %}
+
